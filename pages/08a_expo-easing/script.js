@@ -1,3 +1,4 @@
+import gsap from "gsap";
 // Select the main floating action button (FAB)
 const fab = document.querySelector(".fab");
 
@@ -14,7 +15,7 @@ fab.addEventListener("click", () => {
   expanded = !expanded;
 
   // Toggle button symbol (＋ / ×)
-  fab.textContent = expanded ? "×" : "＋";
+  fab.textContent = expanded ? "-" : "＋";
 
   if (expanded) {
     // Define arc of expansion: spread over 90 degrees
@@ -30,10 +31,29 @@ fab.addEventListener("click", () => {
       const y = -Math.sin(angle) * radius;
 
       // 🔜 Animation will go here
+      gsap.to(child,{
+        x:x,
+        y:y,
+        opacity:1,
+        rotate:360,
+        delay:i*0.1,
+        duration: 0.8,
+        ease: 'expo.out'
+      })
     });
   } else {
-    children.forEach((child) => {
+    const childrenArray = Array.from(children)
+    childrenArray.reverse().forEach((child,i) => {
       // 🔜 Collapse animation will go here
+      gsap.to(child,{
+        x:0,
+        y:0,
+        opacity:0,
+        rotate: 0,
+        delay:i*0.1,
+        ease: "expo.in",
+        pointerEvents: 'none'
+      })
     });
   }
 });
