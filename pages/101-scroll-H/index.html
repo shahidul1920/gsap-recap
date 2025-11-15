@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learning reacting to Horizontal Scroll with GSAP</title>
-    <link rel="stylesheet" href="css/horizontal-scroll.css">
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Horizontal Scroll Demo</title>
+	<link rel="stylesheet" href="./style.css" />
 </head>
+
 <body>
-    <div class="main-container">
-        <div class="extra-long-container">
-            <div class="square1"></div>
-        </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
-    <!-- <script src="js/common.js"></script> -->
-    <script src="./script.js"></script>
+	<div class="firstContainer">
+		<h1>Intro / Above the horizontal scroll</h1>
+		<p>Scroll down to start the horizontal section.</p>
+	</div>
+
+	<!-- Middle section: pinned and horizontally scrolling -->
+	<section class="container horizontal">
+		<div class="panels">
+			<section class="panel red">ONE</section>
+			<section class="panel orange">TWO</section>
+			<section class="panel purple">THREE</section>
+		</div>
+	</section>
+
+	<div class="lastContainer">
+		<h2>After the horizontal scroll</h2>
+		<p>End of demo.</p>
+	</div>
+
+	<script type="module" src="./script.js"></script>
 </body>
+
 </html>
+

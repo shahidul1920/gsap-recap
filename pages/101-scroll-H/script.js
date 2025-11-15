@@ -1,37 +1,28 @@
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 gsap.registerPlugin(ScrollTrigger);
 
-const body = document.querySelector("body");
-const mainContainer = body.querySelector(".main-container");
-const extraLongContainer = mainContainer.querySelector(".extra-long-container");
+// Wait for DOM fully loaded (images, fonts)
+window.addEventListener('load', () => {
+	const horizontalSection = document.querySelector('.horizontal');
+	const panels = gsap.utils.toArray('.panels .panel');
+	if (!horizontalSection || panels.length === 0) return;
 
-let scrollTween = gsap.to(".extra-long-container", {
-    xPercent: -100,
-    x: () => window.innerWidth,
-    ease: "none",
-    scrollTrigger: {
-        trigger: ".extra-long-container",
-        start: "top top",
-        end: () => "+=" + extraLongContainer.offsetWidth + "px",
-        scrub: true,
-        pin: true,
-        invalidateOnRefresh: true,
-        anticipatePin: 1
-    }
+	gsap.to(panels, {
+		xPercent: -100 * (panels.length - 1),
+		ease: 'none',
+		scrollTrigger: {
+			trigger: horizontalSection,
+			start: 'top top',
+			pin: true,
+			scrub: 1,
+			snap: 1 / (panels.length - 1),
+			end: () => '+=' + (horizontalSection.offsetWidth * (panels.length - 1))
+		}
+	});
+
+	// ensure ScrollTrigger calculates correct positions
+	ScrollTrigger.refresh();
 });
 
-const t1 = gsap.timeline({
-    scrollTrigger: {
-        trigger: ".square1",
-        start: "left 70%",
-        end: "left 20%",
-        scrub: 1,
-        containerAnimation: scrollTween,
-        markers: true
-    },
-});
-
-t1.to(".square1", {
-    scale: 2,
-    rotation: 360,
-    duration: 3
-});

@@ -1,65 +1,45 @@
-::-webkit-scrollbar { 
-    display: none; 
+/* Basic reset */
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body { font-family: system-ui, Arial, sans-serif; }
+
+.firstContainer, .lastContainer {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: #f7f7f7;
 }
 
-html { 
-    scrollbar-width: none; 
+.container.horizontal {
+	height: 100vh;
+	overflow: hidden;
+	position: relative;
 }
 
-body {
-    margin: 0;
-    font-family: Tahoma, Geneva, Verdana, sans-serif;
-    -ms-overflow-style: none;
+.panels {
+	display: flex;
+	width: 300%; /* 3 panels */
+	height: 100%;
 }
 
-* { 
-    box-sizing: border-box; 
+.panel {
+	flex: 0 0 100%; /* each panel takes full viewport width */
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 3rem;
+	color: white;
 }
 
-figure {
-    margin: 0;
+.red { background: #ef4444; }
+.orange { background: #f97316; }
+.purple { background: #7c3aed; }
+
+/* small screens tweak */
+@media (max-width: 600px) {
+	.panel { font-size: 1.6rem; }
 }
 
-figure img {
-    margin: 0 auto;
-    display: block;
-}
-
-.main-container { 
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-}
-
-.extra-long-container {
-    width: 7000px;
-    height: 100%;
-    position: relative;
-    background: slateblue;
-}
-
-/* flower1 */
-.extra-long-container .flower1 {
-    position: absolute;
-    z-index: 3;
-    top: 50%;
-    left: 2500px;
-    transform: translate(0, -50%);
-}
-
-.extra-long-container .flower1 img {
-    width: 300px;
-    height: auto;
-}
-
-/* square1 */
-.extra-long-container .square1 {
-    width: 200px;
-    height: 200px;
-    position: absolute;
-    z-index: 3;
-    top: 50%;
-    left: 1200px;
-    background: blue;
-    transform: translate(0, -50%);
-}
