@@ -1,37 +1,65 @@
-html {
-  overflow-y: scroll;
-  height: 100%;
-  -webkit-overflow-scrolling: touch;
-  overflow-scrolling: touch;
+::-webkit-scrollbar { 
+    display: none; 
 }
+
+html { 
+    scrollbar-width: none; 
+}
+
 body {
-  overflow-y: visible;
-  position: relative;
-  height: unset;
-}
-html, body {
-  overflow-x: hidden;
-  margin: 0;
+    margin: 0;
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    -ms-overflow-style: none;
 }
 
-.container {
-  width: 400%;
-  height: 100vh;
-  display: flex;
-  flex-wrap: nowrap;
+* { 
+    box-sizing: border-box; 
 }
 
-.firstContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: yellow;
+figure {
+    margin: 0;
 }
 
-.lastContainer {
-  display: flex;
-  height: 100vh;
-  background: yellow;
+figure img {
+    margin: 0 auto;
+    display: block;
+}
+
+.main-container { 
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.extra-long-container {
+    width: 7000px;
+    height: 100%;
+    position: relative;
+    background: slateblue;
+}
+
+/* flower1 */
+.extra-long-container .flower1 {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 2500px;
+    transform: translate(0, -50%);
+}
+
+.extra-long-container .flower1 img {
+    width: 300px;
+    height: auto;
+}
+
+/* square1 */
+.extra-long-container .square1 {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 1200px;
+    background: blue;
+    transform: translate(0, -50%);
 }
