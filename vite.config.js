@@ -76,6 +76,10 @@ export default defineConfig({
           __dirname,
           "pages/14a_learn-timeline/index.html"
         ),
+        "103-HOR-SCR-2": resolve(
+          __dirname,
+          "pages/103-HOR-SCR-2/index.html"
+        ),
       },
     },
   },
