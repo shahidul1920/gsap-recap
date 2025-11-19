@@ -19,3 +19,18 @@ gsap.to(horizontal,{
         end: ()=> '+=' + (horizontal.offsetWidth)
     }
 })
+
+gsap.utils.toArray(".card").forEach(card => {
+    gsap.to(card,{
+        scale:1.3,
+        ease: 'power1.inOut',
+        scrollTrigger: {
+            trigger: card,
+            containerAnimation: ScrollTrigger.getById('horizontal'),
+            start: "center center",
+            end: "center center",
+            markers: true,
+            //toggleActions: "play reverse play reverse"
+        }
+    })
+})
