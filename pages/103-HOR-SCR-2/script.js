@@ -34,7 +34,18 @@ gsap.utils.toArray(".card").forEach(card => {
             toggleActions: "play reverse play reverse"
         }
     })
+    card.addEventListener('mouseover',()=>{
+        gsap.to(card,{
+            scale:1.1
+        })
+    })
+    card.addEventListener('mouseleave',()=>{
+        gsap.to(card,{
+            scale:1
+        })
+    })
 })
+// horizontal.addEventListener
 
 // import gsap from "gsap";
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
