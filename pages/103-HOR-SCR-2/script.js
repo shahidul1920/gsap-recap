@@ -28,8 +28,8 @@ gsap.utils.toArray(".card").forEach(card => {
         scrollTrigger: {
             trigger: card,
             containerAnimation: scrollTween,
-            start: "left center",
-            end: "right center",
+            start: "left 10%",
+            end: "left 4%",
             markers: true,
             toggleActions: "play reverse play reverse"
         }
