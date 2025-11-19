@@ -30,7 +30,7 @@ gsap.utils.toArray(".card").forEach(card => {
             containerAnimation: scrollTween,
             start: "left 10%",
             end: "left 4%",
-            markers: true,
+            //markers: true,
             toggleActions: "play reverse play reverse"
         }
     })
@@ -45,6 +45,52 @@ gsap.utils.toArray(".card").forEach(card => {
         })
     })
 })
+
+const stacker = document.querySelector('.stacker')
+const cards = document.querySelectorAll('.inCard')
+
+// gsap.to(stacker,{
+//     scrollTrigger:{
+//         trigger: stacker,
+//         start: 'top top',
+//         pin: true
+//     }
+// })
+cards.forEach((card, i) =>{
+    ScrollTrigger.create({
+        trigger: card,
+        start: 'top top',
+        pin: true,
+        pinSpacing: false,
+        end: 'bottom top'
+    })
+
+    const nextCard = cards[i + 1]
+    if(nextCard){
+        gsap.to(card,{
+            scale:1.2,
+            //opacity: 0.4,
+            filter: 'blur (5px)',
+            scrollTrigger:{
+                trigger: nextCard,
+                start: 'top bottom',
+                end: "top top",
+                scrub: true
+            }
+        })
+    }
+
+})
+
+
+//console.log(cards);
+
+
+
+
+
+
+
 // horizontal.addEventListener
 
 // import gsap from "gsap";
