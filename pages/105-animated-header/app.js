@@ -6,33 +6,37 @@ gsap.registerPlugin(ScrollTrigger)
 
 const dynamicLogo = document.querySelector('.dynamicLogo');
 const homePage = document.querySelector('.homepage');
+const headerSection = document.querySelector('.headerSection');
 
-dynamicLogo.style.fill = "#000"
+dynamicLogo.style.fill = "gray"
 
-ScrollTrigger.create({
-    trigger: dynamicLogo,
-    start: 'top top',
-    end: '+=' + (homePage.offsetHeight),
-    pin: true
+gsap.set(headerSection, {
+    y: 20,
+    scaleX: 1.1,
+    scaleY: 1.03,
 })
 
-window.addEventListener('scroll', ()=>{
-    if(window.scrollY > 50){
-        gsap.to(dynamicLogo,{
-            y:20,
-            x:20,
-            scale: 0.7,
-            fill: '#fff',
+ScrollTrigger.create({
+    trigger: headerSection,
+    start: 'top top',
+    end: '+=' + (homePage.offsetHeight),
+    pin: true,
+})
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 5) {
+        gsap.to(headerSection, {
+            scaleX: 1,
+            scaleY: 1,
             ease: 'power1.out',
-            duration: 1,
-            scrollTrigger:{
+            scrollTrigger: {
                 trigger: homePage,
                 start: 'top top',
                 end: 'bottom bottom',
                 scrub: true
             }
         })
-        
+
     }
 })
 
