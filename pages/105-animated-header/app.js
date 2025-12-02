@@ -14,6 +14,8 @@ gsap.set(headerSection, {
     y: 20,
     scaleX: 1.1,
     scaleY: 1.03,
+    background: "#fff",
+    color: "#000"
 })
 
 ScrollTrigger.create({
@@ -28,12 +30,15 @@ window.addEventListener('scroll', () => {
         gsap.to(headerSection, {
             scaleX: 1,
             scaleY: 1,
+            background: "#000",
+            color: "#fff",
             ease: 'power1.out',
             scrollTrigger: {
                 trigger: homePage,
                 start: 'top top',
                 end: 'bottom bottom',
-                scrub: true
+                scrub: true,
+                markers: true
             }
         })
 
