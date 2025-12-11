@@ -14,29 +14,38 @@ ScrollTrigger.create({
     trigger: heroSec,
     start: 'top top',
     end: '+=' + (heroSec.offsetHeight),
+    markers: true,
     //pin: true,
 })
-
-gsap.from(textToAlign1, {
-    scrollTrigger: {
-        trigger: heroSec,
-        start: 'top center',
-        end: 'bottom center',
-        scrub: true,
-    },
+gsap.set(textToAlign1, {
     y: -200,
     opacity: 0,
-    duration: 2,
 })
-gsap.from(textToAlign2, {
+gsap.set(textToAlign2, {
+    y: 200,
+    opacity: 0,
+})
+
+gsap.to(textToAlign1, {
     scrollTrigger: {
         trigger: heroSec,
         start: 'top center',
-        end: 'bottom center',
+        end: 'bottom bottom',
         scrub: true,
     },
-    y: 200,
-    opacity: 0,
+    y: 0,
+    opacity: 1,
+    duration: 2,
+})
+gsap.to(textToAlign2, {
+    scrollTrigger: {
+        trigger: heroSec,
+        start: 'top center',
+        end: 'bottom bottom',
+        scrub: true,
+    },
+    y: 0,
+    opacity: 1,
     duration: 2,
 })
 // window.addEventListener('scroll', () => {
